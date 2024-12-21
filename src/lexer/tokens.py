@@ -8,6 +8,9 @@ class TokenType(Enum):
     KISS = 'kiss'      # then
     HUG = 'hug'        # else
     FOREVER = 'forever' # while
+    CUDDLE = 'cuddle'  # for
+    IN = 'in'          # in (for loop)
+    TO = 'to'          # range (for loop)
     
     # Operators
     PLUS = '+'

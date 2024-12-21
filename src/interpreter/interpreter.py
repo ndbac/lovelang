@@ -71,3 +71,11 @@ class Interpreter:
         for statement in node.statements:
             result = self.visit(statement)
         return result
+
+    def visit_ForNode(self, node):
+        start_val = self.visit(node.start)
+        end_val = self.visit(node.end)
+        
+        for i in range(int(start_val), int(end_val)):
+            self.variables[node.var_name] = i
+            self.visit(node.block)
