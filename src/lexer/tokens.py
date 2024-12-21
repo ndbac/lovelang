@@ -1,19 +1,45 @@
-lovelang
-├── src
-│   ├── lexer
-│   │   ├── lexer.py
-│   │   └── tokens.py
-│   ├── parser
-│   │   ├── parser.py
-│   │   └── ast.py
-│   ├── interpreter
-│   │   └── interpreter.py
-│   └── main.py
-├── tests
-│   ├── test_lexer.py
-│   ├── test_parser.py
-│   └── test_interpreter.py
-├── examples
-│   └── hello_world.love
-├── requirements.txt
-└── README.md
+from enum import Enum
+
+class TokenType(Enum):
+    # Keywords
+    LOVE = 'love'      # variable declaration
+    HEART = 'heart'    # print
+    FEEL = 'feel'      # if
+    KISS = 'kiss'      # then
+    HUG = 'hug'        # else
+    FOREVER = 'forever' # while
+    
+    # Operators
+    PLUS = '+'
+    MINUS = '-'
+    MULTIPLY = '*'
+    DIVIDE = '/'
+    ASSIGN = '='
+    
+    # Comparison
+    EQ = '=='
+    NEQ = '!='
+    LT = '<'
+    GT = '>'
+    LTE = '<='
+    GTE = '>='
+    
+    # Delimiters
+    LPAREN = '('
+    RPAREN = ')'
+    LBRACE = '{'
+    RBRACE = '}'
+    SEMICOLON = ';'
+    
+    # Other
+    NUMBER = 'NUMBER'
+    STRING = 'STRING'
+    IDENTIFIER = 'IDENTIFIER'
+    COMMENT = 'COMMENT'
+    EOF = 'EOF'
+
+class Token:
+    def __init__(self, type: TokenType, value: str, line: int):
+        self.type = type
+        self.value = value
+        self.line = line

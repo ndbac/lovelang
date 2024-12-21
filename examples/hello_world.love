@@ -1,19 +1,18 @@
-lovelang
-├── src
-│   ├── lexer
-│   │   ├── lexer.py
-│   │   └── tokens.py
-│   ├── parser
-│   │   ├── parser.py
-│   │   └── ast.py
-│   ├── interpreter
-│   │   └── interpreter.py
-│   └── main.py
-├── tests
-│   ├── test_lexer.py
-│   ├── test_parser.py
-│   └── test_interpreter.py
-├── examples
-│   └── hello_world.love
-├── requirements.txt
-└── README.md
+xoxo This is a lovely program!
+
+love number = 42;
+heart "The magic number is:";
+heart number;
+
+feel number > 20 kiss {
+    heart "That's a big number!";
+} hug {
+    heart "That's a small number!";
+}
+
+love counter = 0;
+forever counter < 5 {
+    heart "Counting:";
+    heart counter;
+    love counter = counter + 1;
+}
