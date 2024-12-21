@@ -38,8 +38,7 @@ class Interpreter:
 
         if node.op.type in operations:
             return operations[node.op.type]()
-        else:
-            raise Exception(f"Unknown operator: {node.op.type}")
+        raise Exception(f"Unknown operator: {node.op.type}")
 
     def visit_VariableNode(self, node):
         if node.name not in self.variables:

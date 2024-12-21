@@ -36,20 +36,7 @@ class Lexer:
                 self.skip_comment()
                 continue
 
-            if self.current_char.isdigit():
-                return self.number()
-
-            if self.current_char.isalpha():
-                return self.identifier()
-
-            if self.current_char == '"':
-                return self.string()
-
-            # Handle two-character operators
-            if self.current_char in ['=', '!', '<', '>']:
-                return self.comparison_operator()
-
-            # Handle single-character operators and delimiters
+            # Map characters to token types
             simple_tokens = {
                 '+': TokenType.PLUS,
                 '-': TokenType.MINUS,
@@ -62,6 +49,14 @@ class Lexer:
                 ';': TokenType.SEMICOLON
             }
 
+            if self.current_char.isdigit():
+                return self.number()
+            if self.current_char.isalpha():
+                return self.identifier()
+            if self.current_char == '"':
+                return self.string()
+            if self.current_char in ['=', '!', '<', '>']:
+                return self.comparison_operator()
             if self.current_char in simple_tokens:
                 token = Token(simple_tokens[self.current_char], self.current_char, self.line)
                 self.advance()

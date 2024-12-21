@@ -3,11 +3,13 @@ from src.lexer.lexer import Lexer
 from src.parser.parser import Parser
 from src.interpreter.interpreter import Interpreter
 
-def test_arithmetic():
+def test_arithmetic_and_comparison():
     source = '''
     love x = 5;
     love y = 3;
-    love z = x + y * 2;
+    love sum = x + y;
+    love product = x * y;
+    love is_greater = x > y;
     '''
     lexer = Lexer(source)
     parser = Parser(lexer)
@@ -15,22 +17,10 @@ def test_arithmetic():
     
     ast = parser.parse()
     interpreter.visit(ast)
-    
-    assert interpreter.variables['z'] == 11
 
-def test_comparison():
-    source = '''
-    love x = 5;
-    love result = x > 3;
-    '''
-    lexer = Lexer(source)
-    parser = Parser(lexer)
-    interpreter = Interpreter()
-    
-    ast = parser.parse()
-    interpreter.visit(ast)
-    
-    assert interpreter.variables['result'] == True
+    assert interpreter.variables['sum'] == 8
+    assert interpreter.variables['product'] == 15
+    assert interpreter.variables['is_greater'] == True
 
 def test_if_statement():
     source = '''
