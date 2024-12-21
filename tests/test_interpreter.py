@@ -73,3 +73,19 @@ def test_string_concatenation():
     interpreter.visit(ast)
     
     assert interpreter.variables['message'] == "Hello World"
+
+def test_for_loop():
+    source = '''
+    love sum = 0;
+    cuddle i in 0 to 5 {
+        love sum = sum + i;
+    }
+    '''
+    lexer = Lexer(source)
+    parser = Parser(lexer)
+    interpreter = Interpreter()
+    
+    ast = parser.parse()
+    interpreter.visit(ast)
+    
+    assert interpreter.variables['sum'] == 10  # 0 + 1 + 2 + 3 + 4

@@ -1,0 +1,39 @@
+xoxo This example shows different types of loops in LoveLang!
+
+xoxo While loop counting up
+love counter = 0;
+forever counter < 5 {
+    heart "Counting up with love:";
+    heart counter;
+    love counter = counter + 1;
+}
+
+xoxo For loop to calculate sum
+love sum = 0;
+cuddle i in 0 to 5 {
+    love sum = sum + i;
+    heart "Adding numbers with love:";
+    heart "Current number:";
+    heart i;
+    heart "Running sum:";
+    heart sum;
+}
+
+xoxo Nested loops with conditions
+love x = 1;
+cuddle i in 1 to 4 {
+    feel i > 2 kiss {
+        heart "Found a lovely big number:";
+        heart i;
+    } hug {
+        heart "Found a cute small number:";
+        heart i;
+    }
+}
+
+xoxo String concatenation in a loop
+love message = "";
+cuddle i in 0 to 3 {
+    love message = message + "love ";
+    heart message;
+}

@@ -42,3 +42,10 @@ class WhileNode(Node):
 class BlockNode(Node):
     def __init__(self, statements):
         self.statements = statements
+
+class ForNode(Node):
+    def __init__(self, var_name, start, end, block):
+        self.var_name = var_name
+        self.start = start
+        self.end = end
+        self.block = block

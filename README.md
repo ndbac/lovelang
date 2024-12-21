@@ -8,7 +8,8 @@ LoveLang is a cute and expressive programming language designed to make coding m
 - Variables are declared with `love`
 - Print with `heart`
 - Conditionals use `feel`-`kiss`-`hug`
-- Loops use `forever`
+- While loops use `forever`
+- For loops use `cuddle`
 - Comments start with `xoxo`
 
 ### Example
@@ -18,11 +19,28 @@ xoxo This is a lovely program!
 love message = "Hello, lovely world!";
 heart message;
 
+xoxo If statement example
 love number = 42;
 feel number > 20 kiss {
     heart "That's a big lovely number!";
 } hug {
     heart "That's a cute small number!";
+}
+
+xoxo While loop example
+love counter = 0;
+forever counter < 5 {
+    heart "Counting with love:";
+    heart counter;
+    love counter = counter + 1;
+}
+
+xoxo For loop example
+love sum = 0;
+cuddle i in 0 to 5 {
+    love sum = sum + i;
+    heart "Current sum is:";
+    heart sum;
 }
 ```
 
@@ -57,6 +75,9 @@ PYTHONPATH=. python src/main.py examples/hello_world.love
 - `kiss` - Then block
 - `hug` - Else block
 - `forever` - While loop
+- `cuddle` - For loop
+- `in` - Used in for loops
+- `to` - Range specifier in for loops
 - `xoxo` - Comments
 
 ### Operators
@@ -74,18 +95,14 @@ PYTHONPATH=. python src/main.py examples/hello_world.love
 ```
 lovelang/
 ├── src/
-│   ├── __init__.py
 │   ├── main.py
 │   ├── lexer/
-│   │   ├── __init__.py
 │   │   ├── lexer.py
 │   │   └── tokens.py
 │   ├── parser/
-│   │   ├── __init__.py
 │   │   ├── parser.py
 │   │   └── ast.py
 │   └── interpreter/
-│       ├── __init__.py
 │       └── interpreter.py
 ├── tests/
 │   ├── test_lexer.py
@@ -93,7 +110,6 @@ lovelang/
 │   └── test_interpreter.py
 ├── examples/
 │   └── hello_world.love
-├── run.py
 ├── requirements.txt
 └── README.md
 ```

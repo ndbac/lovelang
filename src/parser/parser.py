@@ -30,6 +30,8 @@ class Parser:
             return self.if_statement()
         elif self.current_token.type == TokenType.FOREVER:
             return self.while_statement()
+        elif self.current_token.type == TokenType.CUDDLE:
+            return self.for_statement()
         else:
             return self.expr()
 
@@ -120,3 +122,14 @@ class Parser:
             node = self.expr()
             self.eat(TokenType.RPAREN)
             return node
+
+    def for_statement(self):
+        self.eat(TokenType.CUDDLE)
+        var_name = self.current_token.value
+        self.eat(TokenType.IDENTIFIER)
+        self.eat(TokenType.IN)
+        start = self.expr()
+        self.eat(TokenType.TO)
+        end = self.expr()
+        block = self.block()
+        return ForNode(var_name, start, end, block)
